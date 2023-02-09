@@ -1,0 +1,42 @@
+---
+import Container from '../core/Container.astro';
+
+const {quoteText, customerName} = Astro.props;
+---
+
+<section class="customer-quote__section">
+  <Container narrow>
+    <blockquote>"{quoteText}"</blockquote>
+    <p>&mdash; {customerName}</p>
+  </Container>
+</section>
+
+  <style>
+.customer-quote__section {
+  margin: calc(var(--section-margin) * 2) auto;
+  padding: 3rem;
+  /* background-color: var(--theme-surface-2); */
+  background: radial-gradient(circle, rgba(10, 10, 20), var(--theme-bg) 60%);
+    text-align: center;
+    position: relative;
+}
+.customer-quote__section:after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 4px);
+  left:0;
+  right: 0;
+  width: 50%;
+  border-bottom: 4px solid var(--theme-surface-2);
+  margin: 0 auto;
+}
+
+.customer-quote__section blockquote {
+  padding: 0;
+  border: none;
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.8;
+}
+</style>
